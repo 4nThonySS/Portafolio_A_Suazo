@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>4nT · Portafolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <a href="#inicio" class="logo">[4nT]</a>
+      <nav aria-label="Principal">
+        <ul class="nav-links">
+          <li><a href="#inicio" class="active" aria-current="page">Inicio</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#intereses">Intereses</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SECCIONES TEMPORALES: solo sirven para probar el resaltado al hacer scroll.
+       Bórralas a medida que construyas cada sección real. -->
+  <main>
+    <section id="inicio" class="hero">
+      <div class="wrap hero-grid">
+
+        <div class="hero-text">
+          <p class="hero-hi">HOLA, SOY</p>
+          <h1 aria-label="Antonio Andrés Suazo Sánchez">
+    <span class="name-space" aria-hidden="true">Antonio Andrés Suazo Sánchez_</span>
+    <span class="name-typed" aria-hidden="true"><span id="typed" data-text="Antonio Andrés Suazo Sánchez">Antonio Andrés Suazo Sánchez</span><span class="cursor">_</span></span>
+</h1></h1>
+          <p class="hero-role">Desarrollador Front End</p>
+          <p class="hero-lead">Construyo interfaces web claras, rápidas y que se ven bien en cualquier pantalla.</p>
+          <div class="btn-row">
+            <a href="#proyectos" class="btn btn-solid">Ver proyectos</a>
+            <a href="https://github.com/4nThonySS" class="btn btn-outline" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <aside class="player-card" aria-label="Espacio para imagen">
+          <div class="player-top">
+            <span class="player-label">PLAYER [4nT]</span>
+            <span class="player-status"><i class="dot"></i> EN LÍNEA</span>
+          </div>
+          <!-- Cuando tengas la imagen, reemplaza el contenido de este div por:
+               <img src="img/avatar.png" alt="Descripción de la imagen"> -->
+          <div class="player-photo">
+            <img src="/img/avatar.png" alt="Avatar">
+          </div>
+          <p class="player-foot">FRONT END DEV</p>
+        </aside>
+
+      </div>
+    </section>
+    <section id="sobre-mi" class="demo"><h2>Sobre mí</h2></section>
+    <section id="proyectos" class="demo"><h2>Proyectos</h2></section>
+    <section id="intereses" class="demo"><h2>Intereses</h2></section>
+  </main>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
