@@ -29,18 +29,18 @@
     </div>
   </header>
 
-  <!-- SECCIONES TEMPORALES: solo sirven para probar el resaltado al hacer scroll.
-       Bórralas a medida que construyas cada sección real. -->
   <main>
+
+    <!-- INICIO -->
     <section id="inicio" class="hero">
       <div class="wrap hero-grid">
 
         <div class="hero-text">
           <p class="hero-hi">HOLA, SOY</p>
           <h1 aria-label="Antonio Andrés Suazo Sánchez">
-    <span class="name-space" aria-hidden="true">Antonio Andrés Suazo Sánchez_</span>
-    <span class="name-typed" aria-hidden="true"><span id="typed" data-text="Antonio Andrés Suazo Sánchez">Antonio Andrés Suazo Sánchez</span><span class="cursor">_</span></span>
-</h1></h1>
+            <span class="name-space" aria-hidden="true">Antonio Andrés Suazo Sánchez_</span>
+            <span class="name-typed" aria-hidden="true"><span id="typed" data-text="Antonio Andrés Suazo Sánchez">Antonio Andrés Suazo Sánchez</span><span class="cursor">_</span></span>
+          </h1>
           <p class="hero-role">Desarrollador Front End</p>
           <p class="hero-lead">Construyo interfaces web claras, rápidas y que se ven bien en cualquier pantalla.</p>
           <div class="btn-row">
@@ -49,25 +49,279 @@
           </div>
         </div>
 
-        <aside class="player-card" aria-label="Espacio para imagen">
+        <aside class="player-card" aria-label="Tarjeta de jugador">
           <div class="player-top">
             <span class="player-label">PLAYER [4nT]</span>
             <span class="player-status"><i class="dot"></i> EN LÍNEA</span>
           </div>
-          <!-- Cuando tengas la imagen, reemplaza el contenido de este div por:
-               <img src="img/avatar.png" alt="Descripción de la imagen"> -->
           <div class="player-photo">
-            <img src="/img/avatar.png" alt="Avatar">
+            <img src="img/avatar.png" alt="Avatar en pixel art de un muñeco de tela con cara seria" />
           </div>
           <p class="player-foot">FRONT END DEV</p>
         </aside>
 
       </div>
+
+      <a href="#sobre-mi" class="scroll-down" aria-label="Bajar a Sobre mí">
+        <span>SCROLL</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </a>
     </section>
-    <section id="sobre-mi" class="demo"><h2>Sobre mí</h2></section>
-    <section id="proyectos" class="demo"><h2>Proyectos</h2></section>
-    <section id="intereses" class="demo"><h2>Intereses</h2></section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="about">
+      <div class="wrap">
+
+        <div class="section-head">
+          <h2><span class="num">[02]</span> SOBRE MÍ</h2>
+        </div>
+
+        <p class="about-text">
+          Soy estudiante de Informática y me estoy enfocando en el desarrollo front end.
+          Me gusta convertir ideas en interfaces que se vean bien y funcionen sin complicaciones.
+          Crecí jugando y creando, y eso sigue marcando cómo trabajo: probando, rompiendo y mejorando.
+        </p>
+
+        <div class="boxes">
+
+          <article class="box box-pink">
+            <span class="spine">ESTUDIOS</span>
+            <div class="box-body">
+              <span class="box-num">01</span>
+              <svg class="box-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 9l10-5 10 5-10 5z" />
+                <path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" />
+                <path d="M22 9v6" />
+              </svg>
+              <div>
+                <h3>Informática</h3>
+                <p>Duoc UC</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="box box-purple">
+            <span class="spine">STACK</span>
+            <div class="box-body">
+              <span class="box-num">02</span>
+              <ul class="tags tags-fill">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>Kotlin</li>
+                <li>Python</li>
+                <li>Git</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="box box-green">
+            <span class="spine">ENFOQUE</span>
+            <div class="box-body">
+              <span class="box-num">03</span>
+            <div>
+              <p class="box-note">Lo que más me gusta hacer y hacia donde quiero ir.</p>
+            <ul class="tags tags-fill">
+                <li>Front End</li>
+                <li>Full Stack</li>
+                <li>UI / UX</li>
+                <li>Apps móviles</li>
+            </ul>
+            </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+<!-- PROYECTOS -->
+<section id="proyectos" class="projects">
+    <div class="wrap">
+
+        <div class="section-head">
+            <h2><span class="num">[03]</span> PROYECTOS</h2>
+        </div>
+
+        <!-- QUITAR AL ACTUALIZAR -->
+        <div class="soon">
+            <i class="dot"></i>
+            <p>
+                <strong>PRÓXIMAMENTE</strong> · Estoy trabajando en mis primeros proyectos. Vuelve pronto.
+            </p>
+        </div>
+
+        <!-- MAQUETA DE PROYECTOS -->
+        <div class="cards">
+
+            <article class="card">
+                <div class="card-img">
+                    <!-- Reemplazar por:
+                    <img src="img/proyecto1.png" alt="Descripción del proyecto">
+                    -->
+                    <span>[ imagen ]</span>
+                </div>
+
+                <div class="card-body">
+                    <span class="card-num">01</span>
+                    <h3>Nombre del proyecto</h3>
+
+                    <a href="#" class="card-link" target="_blank" rel="noreferrer">
+                        Ver proyecto <span aria-hidden="true">→</span>
+                    </a>
+
+                    <a href="#" class="card-link" target="_blank" rel="noreferrer">
+                        GitHub <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
+
+            <article class="card">
+                <div class="card-img">
+                    <span>[ imagen ]</span>
+                </div>
+
+                <div class="card-body">
+                    <span class="card-num">02</span>
+                    <h3>Nombre del proyecto</h3>
+
+                    <a href="#" class="card-link" target="_blank" rel="noreferrer">
+                        Ver proyecto <span aria-hidden="true">→</span>
+                    </a>
+
+                    <a href="#" class="card-link" target="_blank" rel="noreferrer">
+                        GitHub <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
+
+            <article class="card">
+                <div class="card-img">
+                    <span>[ imagen ]</span>
+                </div>
+
+                <div class="card-body">
+                    <span class="card-num">03</span>
+                    <h3>Nombre del proyecto</h3>
+
+                    <a href="#" class="card-link" target="_blank" rel="noreferrer">
+                        Ver proyecto <span aria-hidden="true">→</span>
+                    </a>
+
+                    <a href="#" class="card-link" target="_blank" rel="noreferrer">
+                        GitHub <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- INTERESES -->
+<section id="intereses" class="interests">
+    <div class="wrap">
+
+        <div class="section-head">
+            <h2><span class="num">[04]</span> INTERESES</h2>
+        </div>
+
+        <div class="interest-cards">
+
+            <!-- VIDEOJUEGOS -->
+            <article class="interest interest-green" data-lista="juegos">
+
+                <button
+                    type="button"
+                    class="interest-main"
+                    aria-label="Videojuegos: clic para ver el siguiente"
+                >
+                    <span class="interest-top">
+                        <span class="interest-label">JUGANDO</span>
+                        <span class="interest-count"></span>
+                    </span>
+
+                    <span class="interest-text">
+                        <span class="interest-title"></span>
+                        <span class="interest-sub"></span>
+                    </span>
+
+                    <span class="interest-hint">
+                        CLIC PARA CAMBIAR →
+                    </span>
+                </button>
+
+            </article>
+
+
+            <!-- MÚSICA -->
+            <article class="interest interest-purple" data-lista="musica">
+
+                <button
+                    type="button"
+                    class="interest-main"
+                    aria-label="Música: clic para ver el siguiente"
+                >
+                    <span class="interest-top">
+                        <span class="interest-label">ESCUCHANDO</span>
+                        <span class="interest-count"></span>
+                    </span>
+
+                    <span class="interest-text">
+                        <span class="interest-title"></span>
+                        <span class="interest-sub"></span>
+                    </span>
+
+                    <span class="interest-hint">
+                        CLIC PARA CAMBIAR →
+                    </span>
+                </button>
+
+
+                <a
+                    href="#"
+                    class="interest-link"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Escuchar en Spotify"
+                >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10" fill="currentColor" />
+                        <path
+                            d="M7 9.5c3.5-1 7-.7 10 1M7.5 12.5c3-.8 6-.5 8.5 1M8 15.3c2.5-.6 5-.3 7 .8"
+                            fill="none"
+                            stroke="#050505"
+                            stroke-width="1.6"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                    Spotify
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
   </main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="wrap">
+        <p>© 2026 Antonio Andrés Suazo Sánchez</p>
+    </div>
+</footer>
 
   <script src="assets/script.js"></script>
 </body>

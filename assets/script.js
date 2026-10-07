@@ -24,6 +24,9 @@ const observer = new IntersectionObserver(
 sections.forEach((s) => observer.observe(s));
 
 /* ===== DESPLAZAMIENTO SUAVE AL HACER CLIC (no depende del navegador) ===== */
+const AJUSTES = {
+    "sobre-mi": 60,
+};
 const DURACION = 700; // milisegundos
 
 function easeInOut(t) {
@@ -53,7 +56,8 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
 
         e.preventDefault();
         const altoNavbar = document.querySelector(".site-header").offsetHeight;
-        scrollSuave(seccion.offsetTop - altoNavbar);
+        const extra = AJUSTES[id] || 0;
+        scrollSuave(seccion.offsetTop - altoNavbar + extra);
         history.pushState(null, "", `#${id}`);
     });
 });
@@ -138,7 +142,7 @@ function dibujar(time) {
 
 /* ===== FONDO: NEGRO -> GRIS AL BAJAR HASTA "SOBRE MÍ" ===== */
 const NEGRO = [5, 5, 5];
-const GRIS = [46, 46, 48]; // cambia este valor para otro gris
+const GRIS = [24, 14, 32];
 const seccionSobreMi = document.getElementById("sobre-mi");
 
 function actualizarFondo() {
@@ -183,3 +187,118 @@ function escribirNombre() {
 }
 
 escribirNombre();
+
+/* ===== STACK: color aleatorio al pasar el mouse ===== */
+document.querySelectorAll(".tags-fill li").forEach((item) => {
+    item.addEventListener("pointerenter", () => {
+        const tono = Math.floor(Math.random() * 360);
+        item.style.setProperty("--glow", `hsl(${tono} 90% 65%)`);
+    });
+});
+
+
+/* ===== INTERESES: tarjetas que rotan ===== */
+const AUTO_MS = 6000; // cada cuántos ms cambian solas. Pon 0 para que solo cambien con clic
+
+// Para las canciones, pega el enlace de Spotify en "link"
+const intereses = {
+    juegos: [
+        { titulo: "Red Dead Redemption 2", detalle: "Rockstar Games · mundo abierto en el viejo oeste." },
+        { titulo: "Valheim", detalle: "Iron Gate · supervivencia y exploración vikinga." },
+        { titulo: "Counter-Strike 2", detalle: "Valve · shooter táctico competitivo." },
+        { titulo: "Stardew Valley", detalle: "ConcernedApe · granja y vida tranquila." },
+        { titulo: "Minecraft", detalle: "Mojang · construir y explorar sin límites." },
+    ],
+    musica: [
+        { titulo: "Valentine", detalle: "Måneskin", link: "https://open.spotify.com/intl-es/track/5mY6WIHXoBsOCSyQxrTg0E?si=a3fb49f9033145c0" },
+        { titulo: "Ni Pedo", detalle: "Peso Pluma · Tito Double P", link: "https://open.spotify.com/intl-es/track/5Wf6fC4fO4SikmnjEvA1P7?si=ff9cd6d49bbd4fa4" },
+        { titulo: "Coraline", detalle: "Måneskin", link: "https://open.spotify.com/intl-es/track/7HMz8o0m7ASQ3ImFPfhWTY?si=c939bdcea52e4237" },
+        { titulo: "R U Mine?", detalle: "Arctic Monkeys", link: "https://open.spotify.com/intl-es/track/2AT8iROs4FQueDv2c8q2KE?si=02feb69dea994b74" },
+        { titulo: "Alma Dinamita", detalle: "Wos", link: "https://open.spotify.com/intl-es/track/2ONADYjJvqYVwjWavuY0H1?si=ff09179779fe43f8" },
+    ],
+};
+
+document.querySelectorAll(".interest").forEach((card) => {
+    const lista = intereses[card.dataset.lista];
+    const boton = card.querySelector(".interest-main");
+    const texto = card.querySelector(".interest-text");
+    const titulo = card.querySelector(".interest-title");
+    const detalle = card.querySelector(".interest-sub");
+    const contador = card.querySelector(".interest-count");
+    const enlace = card.querySelector(".interest-link");
+    let actual = 0;
+    let timer = null;
+
+    function mostrar() {
+        titulo.textContent = lista[actual].titulo;
+        detalle.textContent = lista[actual].detalle;
+        contador.textContent = `${String(actual + 1).padStart(2, "0")} / ${String(lista.length).padStart(2, "0")}`;
+
+        if (enlace) {
+            const url = lista[actual].link;
+            enlace.href = url || "#";
+            enlace.classList.toggle("is-pending", !url);
+        }
+    }
+
+    function siguiente() {
+        texto.classList.add("is-changing");
+        setTimeout(() => {
+            actual = (actual + 1) % lista.length;
+            mostrar();
+            texto.classList.remove("is-changing");
+        }, 200);
+    }
+
+    function iniciarAuto() {
+        if (!AUTO_MS) return;
+        clearInterval(timer);
+        timer = setInterval(siguiente, AUTO_MS);
+    }
+
+    boton.addEventListener("click", () => {
+        siguiente();
+        iniciarAuto();
+    });
+
+    // Si todavía no hay enlace, el botón de Spotify no hace nada
+    if (enlace) {
+        enlace.addEventListener("click", (e) => {
+            if (enlace.classList.contains("is-pending")) e.preventDefault();
+        });
+    }
+
+    card.addEventListener("mouseenter", () => clearInterval(timer));
+    card.addEventListener("mouseleave", iniciarAuto);
+    card.addEventListener("focusin", () => clearInterval(timer));
+    card.addEventListener("focusout", iniciarAuto);
+
+    mostrar();
+    iniciarAuto();
+});
+
+
+/* ===== LOGO: ESCRITURA + PARPADEO ===== */
+
+const logo = document.querySelector(".logo");
+const textoLogo = "[4nT]";
+
+if (logo) {
+    logo.textContent = "";
+
+    let i = 0;
+
+    function escribirLogo() {
+        if (i < textoLogo.length) {
+            logo.textContent += textoLogo[i];
+            i++;
+
+            setTimeout(escribirLogo, 350);
+        } else {
+            // Cuando termina de escribirse, comienza el parpadeo
+            logo.classList.add("logo-blink");
+        }
+    }
+
+    escribirLogo();
+}
