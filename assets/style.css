@@ -64,11 +64,16 @@ main {
 }
 
 /* ===== NAVBAR ===== */
+/* ===== NAVBAR ===== */
 .site-header {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: var(--bg);
+    /* Fondo semitransparente basado en tu color oscuro */
+    background: rgba(5, 5, 5, 0.6); 
+    /* Efecto cristal para desenfocar lo que quede debajo al hacer scroll */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
 }
 
@@ -806,7 +811,7 @@ main {
     position: relative;
     z-index: 1;
     padding: 28px 0;
-    margin-top: 250px;
+    margin-top: 100px;
     border-top: 1px solid var(--line);
     background: rgba(0, 0, 0, .25);
     text-align: center;
@@ -819,16 +824,139 @@ main {
     color: var(--muted);
 }
 
+/* ===== CONTACTO ===== */
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 150px;
+    padding-bottom: 80px;
+    margin-top: 230px;
+}
+
+.contact-header {
+    margin-bottom: 48px;
+}
+
+.contact-header h2 {
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: 700;
+    margin: 0 0 16px;
+    color: var(--text);
+}
+
+.contact-header p {
+    font-size: 16px;
+    color: var(--muted);
+    margin: 0;
+    max-width: 60ch;
+}
+
+.contact-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Caja de Correo Grande */
+.email-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    padding: 36px 24px;
+    background: rgba(255, 255, 255, 0.03); /* Fondo oscuro grisáceo */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px; /* Esquinas muy redondeadas */
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.email-box span {
+    font-size: clamp(20px, 4vw, 32px);
+    font-weight: 700;
+    color: var(--text);
+}
+
+.email-box:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+}
+
+/* Botones Píldora de Redes */
+.social-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px; 
+    color: var(--muted);
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.pill:hover {
+    color: var(--text);
+    border-color: var(--text);
+    background: rgba(215, 71, 228, 0.692);
+}
+
 
 /* ===== RESPONSIVE ===== */
+
 @media (max-width: 900px) {
+    /* --- HERO --- */
     .hero-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+        text-align: center;
+        justify-items: center; /* Centra la player-card */
+    }
+
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-lead {
+        margin: 0 auto; /* Centra el bloque de texto */
+    }
+
+    .btn-row {
+        justify-content: center;
     }
 
     .player-card {
         max-width: 360px;
+        margin: 0 auto;
+    }
+
+    /* --- SOBRE MÍ --- */
+    .section-head {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .about-text {
+        text-align: center;
+        margin: 0 auto 48px auto; /* Centra el párrafo */
     }
 
     .boxes {
@@ -837,21 +965,60 @@ main {
         margin: 0 auto;
     }
 
+    /* --- PROYECTOS --- */
     .cards {
         grid-template-columns: 1fr 1fr;
     }
-    
-.interest-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-.interest:nth-child(2) {
-    grid-column: 3;
-}
-}
+
+    .soon {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column; /* Apila el texto si es muy largo */
+    }
+/* --- INTERESES --- */
+    .interest-cards {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .interest {
+        flex-direction: column;
+        /* Quitamos align-items: center; de aquí para que la tarjeta no se encoja a los lados */
+    }
+
+    .interest:nth-child(2) {
+        grid-column: auto;
+    }
+
+    .interest-main {
+        text-align: center;
+        align-items: center;
+        justify-content: center; /* Centra el texto verticalmente para que no quede tan abajo */
+        width: 100%;             /* Fuerza a que el botón ocupe todo el ancho */
+        height: 100%;            /* Fuerza a que el botón ocupe todo el alto */
+        padding: 32px;           /* Restauramos el padding para mantener los márgenes internos */
+    }
+
+    .interest-top {
+        justify-content: center;
+        width: 100%;
+        gap: 16px;
+    }
+
+    .interest-link {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: 0;
+        margin-bottom: 32px; /* Da espacio inferior para que no quede pegado al borde */
+        align-self: center;  /* Centra el botón de Spotify horizontalmente */
+    }
+
+
 
 @media (max-width: 600px) {
+    /* --- NAVBAR --- */
     .nav {
         grid-template-columns: 1fr;
         justify-items: center;
@@ -861,11 +1028,23 @@ main {
     .nav-links {
         gap: 14px;
         font-size: 12px;
+        flex-wrap: wrap; /* Por si los links no caben en una línea */
     }
 
+    /* --- PROYECTOS --- */
     .cards {
         grid-template-columns: 1fr;
         max-width: 420px;
-        margin: 0 auto;
+        margin: 0 auto; /* Centra las tarjetas de proyectos */
     }
+    
+    .card-body {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .card-link {
+        align-self: center; /* Centra el botón del proyecto */
+    }
+}
 }
