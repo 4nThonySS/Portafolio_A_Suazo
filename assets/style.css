@@ -973,7 +973,7 @@ main {
     .soon {
         justify-content: center;
         text-align: center;
-        flex-direction: column; /* Apila el texto si es muy largo */
+        flex-direction: row; /* Ahora el punto estará al lado */
     }
 /* --- INTERESES --- */
     .interest-cards {
